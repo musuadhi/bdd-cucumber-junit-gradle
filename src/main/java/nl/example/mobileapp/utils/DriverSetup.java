@@ -26,9 +26,13 @@ public class DriverSetup {
         capabilities.setCapability("automationName", "UiAutomator2");
         capabilities.setCapability("newCommandTimeout", 60);
 
+        String appiumUrl = System.getenv("APPIUM_URL");
+        String appiumPort = System.getenv("APPIUM_PORT");
+        String appiumServerUrl = appiumUrl+":"+appiumPort;
+
         // Initialize the AndroidDriver object
         try {
-            driver = new AndroidDriver<>(new URL("http://0.0.0.0:4723"), capabilities);
+            driver = new AndroidDriver<>(new URL(appiumServerUrl), capabilities);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

@@ -9,7 +9,10 @@ on:
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: macos-12
+    env:
+      APPIUM_URL: "http://0.0.0.0"
+      APPIUM_PORT: "4723"
 
     steps:
       - name: Checkout code to GitHub Actions runner
