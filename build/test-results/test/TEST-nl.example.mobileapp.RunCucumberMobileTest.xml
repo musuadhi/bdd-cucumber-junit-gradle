@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="nl.example.mobileapp.RunCucumberMobileTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-01-27T10:25:33" hostname="MUSU" time="10.295">
+  <properties/>
+  <testcase name="Cucumber Setup - Testing Cucumber Setup" classname="nl.example.mobileapp.RunCucumberMobileTest" time="0.007"/>
+  <testcase name="Click on Battery in Settings - Testing Battery in settings" classname="nl.example.mobileapp.RunCucumberMobileTest" time="10.287"/>
+  <system-out><![CDATA[
+Scenario: Testing Cucumber Setup   ?[90m# nl/example/mobileapp/Sample.feature:2?[0m
+Everything is installed!
+  ?[32mGiven ?[0m?[32meverything is installed?[0m    ?[90m# nl.example.mobileapp.MobileAppStepDefinitions.everything_is_installed()?[0m
+User ran the sample test
+  ?[32mWhen ?[0m?[32muser runs the sample test?[0m   ?[90m# nl.example.mobileapp.MobileAppStepDefinitions.user_runs_the_sample_test()?[0m
+Step definition for sample test executed!
+  ?[32mThen ?[0m?[32mthe sample test is executed?[0m ?[90m# nl.example.mobileapp.MobileAppStepDefinitions.the_sample_test_is_executed()?[0m
+
+Scenario: Testing Battery in settings ?[90m# nl/example/mobileapp/battery-settings.feature:2?[0m
+Inside Given user is on mobile home
+  ?[32mGiven ?[0m?[32muser is on mobile home?[0m        ?[90m# nl.example.mobileapp.MobileAppStepDefinitions.userMobileHome()?[0m
+Tapping on battery
+Tapping on battery in settings
+***** Connecting Device *****
+  ?[32mWhen ?[0m?[32mtaps on the battery settings?[0m   ?[90m# nl.example.mobileapp.MobileAppStepDefinitions.openSettingsAndTapOnBattery()?[0m
+Verify the battery screen
+  ?[32mThen ?[0m?[32mbattery information is seen?[0m    ?[90m# nl.example.mobileapp.MobileAppStepDefinitions.assertBatteryScreen()?[0m
+]]></system-out>
+  <system-err><![CDATA[Jan 27, 2023 11:25:42 AM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+INFO: Detected dialect: W3C
+]]></system-err>
+</testsuite>
