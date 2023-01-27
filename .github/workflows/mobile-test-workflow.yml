@@ -10,9 +10,6 @@ on:
 jobs:
   build:
     runs-on: macos-12
-    env:
-      APPIUM_URL: "http://0.0.0.0"
-      APPIUM_PORT: "4723"
 
     steps:
       - name: Checkout code to GitHub Actions runner
@@ -29,7 +26,7 @@ jobs:
         run: |
           npm i -g appium@next
           appium -v
-          appium &>/dev/null/ &
+          appium -a 0.0.0.0 -p 4723
 
       - name: run android tests
         uses: reactivecircus/android-emulator-runner@v2
@@ -37,7 +34,7 @@ jobs:
           api-level: 29
           script: ./gradlew test --rerun-tasks
         continue-on-error: true
-        
+
       - name: Upload test report
         uses: actions/upload-artifact@v3
         with:
