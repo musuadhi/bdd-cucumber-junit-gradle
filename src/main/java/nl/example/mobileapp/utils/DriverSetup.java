@@ -18,7 +18,7 @@ public class DriverSetup {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         // Set the desired device capabilities
         capabilities.setCapability("platformName", "Android");
-        capabilities.setCapability("appium:deviceName", "Android"); //udid
+        capabilities.setCapability("appium:deviceName", "test"); //udid
         capabilities.setCapability("appium:appPackage", "com.android.settings");
         capabilities.setCapability("appium:appActivity", ".Settings");
 

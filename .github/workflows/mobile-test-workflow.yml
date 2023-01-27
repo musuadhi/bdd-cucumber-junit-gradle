@@ -33,6 +33,7 @@ jobs:
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 29
+          #avd-name: Android
           script: ./gradlew test --rerun-tasks
         continue-on-error: true
 
