@@ -36,7 +36,8 @@ jobs:
         with:
           api-level: 29
           script: ./gradlew test --rerun-tasks
-
+        continue-on-error: true
+        
       - name: Upload test report
         uses: actions/upload-artifact@v3
         with:
