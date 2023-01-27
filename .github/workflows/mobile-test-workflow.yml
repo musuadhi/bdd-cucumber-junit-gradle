@@ -1,0 +1,41 @@
+name: Test automation workflow for mobile apps
+
+on:
+  push:
+    branches: [ "master" ]
+
+  #permissions:
+  #contents: write
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout code to GitHub Actions runner
+        uses: actions/checkout@v3
+      - run: chmod +x gradlew
+
+      - name: Set up JDK 11 on the ubuntu runner
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+
+      - name: Install appium
+        run: |
+          npm i -g appium@next
+          appium -v
+          appium &>/dev/null/ &
+
+      - name: run android tests
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          script: ./gradlew test --rerun-tasks
+
+      - name: Upload test report
+        uses: actions/upload-artifact@v3
+        with:
+          name: Test Report
+          path: /Users/runner/work/bdd-cucumber-junit-gradle/bdd-cucumber-junit-gradle/build/reports/
