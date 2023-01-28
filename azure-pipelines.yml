@@ -1,18 +1,48 @@
-# Appium Android Test
-# https://docs.microsoft.com/azure/devops/pipelines/languages/android
+# Appium Android CI pipeline
 
 trigger:
   - master
 
 pool:
-  vmImage: 'macos-latest'
+  vmImage: macos-latest
 
-steps:
-  - task: Gradle@2
-    inputs:
-      workingDirectory: ''
-      gradleWrapperFile: 'gradlew'
-      gradleOptions: '-Xmx3072m'
-      publishJUnitResults: true
-      testResultsFiles: '**/test-*.xml'
-      tasks: 'assembleDebug'
+variables:
+  buildConfiguration: 'alpha'
+
+jobs:
+  - job: setup_appium
+    steps:
+      - script: |
+          node -v
+          npm install -g appium@next
+          appium -v
+          appium driver install uiautomator2
+        displayName: "Install Appium"
+
+      - bash: |
+          echo "y" | $ANDROID_HOME/tools/bin/sdkmanager --install 'system-images;android-27;google_apis;x86'
+        displayName: "Install Android Image"
+
+
+  - job: setup_android_avd
+    steps:
+      - script: |
+          $ANDROID_HOME/emulator/emulator -list-avds
+          echo '---'
+          echo "no" | $ANDROID_HOME/tools/bin/avdmanager create avd -n Pixel -k 'system-images;android-27;google_apis;x86' --force
+          echo '---'
+          $ANDROID_HOME/emulator/emulator -list-avds
+        displayName: "Create AVD"
+
+      - script: |
+          $ANDROID_HOME/platform-tools/adb devices
+          echo '---'
+          nohup $ANDROID_HOME/emulator/emulator -avd Pixel -no-snapshot > /dev/null 2>&1 & $ANDROID_HOME/platform-tools/adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed | tr -d '\r') ]]; do sleep 1; done; input keyevent 82'
+          echo '---'
+          $ANDROID_HOME/platform-tools/adb devices
+        displayName: "Start AVD"
+
+      - script: |
+          echo '---'
+          $ANDROID_HOME/platform-tools/emulator -avd Pixel -stop
+        displayName: "Stop AVD"
