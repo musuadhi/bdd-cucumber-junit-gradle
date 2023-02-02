@@ -4,7 +4,7 @@ trigger:
   - master
 
 pool:
-  vmImage: macos-latest
+  vmImage: macos-12
 
 variables:
   buildConfiguration: 'alpha'
@@ -41,5 +41,7 @@ jobs:
 
       - script: |
           echo '---'
+          $ANDROID_HOME/platform-tools/adb devices
+          echo 'Stopping AVD'
           $ANDROID_HOME/platform-tools/emulator -avd Pixel -stop
         displayName: "Stop AVD"

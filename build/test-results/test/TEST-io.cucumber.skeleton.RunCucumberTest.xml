@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="io.cucumber.skeleton.RunCucumberTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-01-27T11:38:21" hostname="MUSU" time="0.098">
+<testsuite name="io.cucumber.skeleton.RunCucumberTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-02-02T05:40:40" hostname="MUSU" time="0.017">
   <properties/>
-  <testcase name="Belly - a few cakes" classname="io.cucumber.skeleton.RunCucumberTest" time="0.098"/>
+  <testcase name="Belly - a few cakes" classname="io.cucumber.skeleton.RunCucumberTest" time="0.017"/>
   <system-out><![CDATA[
 Scenario: a few cakes               ?[90m# io/cucumber/skeleton/belly.feature:3?[0m
 I have 42 cakes  ?[32mGiven ?[0m?[32mI have ?[0m?[32m?[1m42?[0m?[32m cakes in my belly?[0m ?[90m# io.cucumber.skeleton.StepDefinitions.I_have_cakes_in_my_belly(int)?[0m
