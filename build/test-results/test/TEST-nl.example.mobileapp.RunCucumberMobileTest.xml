@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="nl.example.mobileapp.RunCucumberMobileTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-02-02T05:40:23" hostname="MUSU" time="16.925">
+<testsuite name="nl.example.mobileapp.RunCucumberMobileTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-02-02T06:23:23" hostname="MUSU" time="9.95">
   <properties/>
-  <testcase name="Cucumber Setup - Testing Cucumber Setup" classname="nl.example.mobileapp.RunCucumberMobileTest" time="0.095"/>
-  <testcase name="Click on Battery in Settings - Testing Battery in settings" classname="nl.example.mobileapp.RunCucumberMobileTest" time="16.828"/>
+  <testcase name="Cucumber Setup - Testing Cucumber Setup" classname="nl.example.mobileapp.RunCucumberMobileTest" time="0.006"/>
+  <testcase name="Click on Battery in Settings - Testing Battery in settings" classname="nl.example.mobileapp.RunCucumberMobileTest" time="9.942"/>
   <system-out><![CDATA[
 Scenario: Testing Cucumber Setup   ?[90m# nl/example/mobileapp/Sample.feature:2?[0m
 Everything is installed!
@@ -22,7 +22,7 @@ Tapping on battery in settings
 Verify the battery screen
   ?[32mThen ?[0m?[32mbattery information is seen?[0m    ?[90m# nl.example.mobileapp.MobileAppStepDefinitions.assertBatteryScreen()?[0m
 ]]></system-out>
-  <system-err><![CDATA[Feb 02, 2023 6:40:38 AM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+  <system-err><![CDATA[Feb 02, 2023 7:23:31 AM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
 INFO: Detected dialect: W3C
 ]]></system-err>
 </testsuite>

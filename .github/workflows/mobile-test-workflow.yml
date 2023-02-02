@@ -2,7 +2,7 @@ name: Test automation workflow for mobile apps
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "actions" ]
 
   #permissions:
   #contents: write
